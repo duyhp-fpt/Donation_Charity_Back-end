@@ -20,4 +20,3 @@ D:\Donation_Charity_Back-end\DonationCharity\Donation.Data\obj\Debug\netcoreapp3
 D:\Donation_Charity_Back-end\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.pdb
 D:\Donation_Charity_Back-end\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.genruntimeconfig.cache
-D:\Donation_Charity_Back-end\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.csproj.AssemblyReference.cache
