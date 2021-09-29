@@ -21,6 +21,7 @@ namespace Donation.Data.EF
         }
 
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
 
     }
 }

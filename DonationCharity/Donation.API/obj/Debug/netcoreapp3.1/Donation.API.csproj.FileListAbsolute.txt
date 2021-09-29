@@ -80,3 +80,8 @@ D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Donation.Business.pdb
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Donation.Data.pdb
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.csproj.CopyComplete
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.MvcApplicationPartsAssemblyInfo.cs
