@@ -8,3 +8,16 @@ D:\Donation_Charity_Back-end\DonationWeb\Donation.Business\obj\Debug\netcoreapp3
 D:\Donation_Charity_Back-end\DonationWeb\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.CoreCompileInputs.cache
 D:\Donation_Charity_Back-end\DonationWeb\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.dll
 D:\Donation_Charity_Back-end\DonationWeb\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.pdb
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Business.deps.json
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Business.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Business.pdb
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.AssemblyReference.cache
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.AssemblyInfoInputs.cache
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.AssemblyInfo.cs
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.CoreCompileInputs.cache
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.pdb
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Data.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Data.pdb
+D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.CopyComplete
