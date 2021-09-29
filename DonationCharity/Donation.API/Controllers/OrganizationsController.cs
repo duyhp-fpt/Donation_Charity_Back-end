@@ -33,6 +33,7 @@ namespace Donation.API.Controllers
             if (organization == null) return BadRequest("Not found organization");
             return Ok(organization);
         }
+
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Create([FromForm] OrganizationCreateRequest request)
@@ -43,6 +44,20 @@ namespace Donation.API.Controllers
             var organization = await _organizationService.GetById(organizationId);
 
             return CreatedAtAction(nameof(GetById), new { id = organizationId }, organization);
+        }
+
+        [HttpPut("{id}")]
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult> Update([FromRoute] int id, [FromForm] OrganizationUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            request.OrganizationId = id;
+            var affectedResult = await _organizationService.Update(request);
+            if (affectedResult == 0) return BadRequest();
+            return Ok("update success");
         }
     }
 }

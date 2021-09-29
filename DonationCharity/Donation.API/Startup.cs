@@ -1,4 +1,5 @@
 using Donation.Business.Admins;
+using Donation.Business.Campaign;
 using Donation.Business.Organizations;
 using Donation.Data.EF;
 using Donation.Data.Entities;
@@ -33,6 +34,7 @@ namespace Donation.API
 
             services.AddTransient<IAdminService, AdminService>();
             services.AddTransient<IOrganizationService, OrganizationService>();
+            services.AddTransient<ICampaignService, CampaignService>();
 
             services.AddControllersWithViews();
             services.AddSwaggerGen();
