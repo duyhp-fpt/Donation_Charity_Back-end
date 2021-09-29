@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Donation.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -8,9 +9,9 @@ using System.Text;
 
 namespace Donation.Data.EF
 {
-    public class DonationDbContextFactory : IDesignTimeDbContextFactory<DonationDbContext>
+    public class DonationDbContextFactory : IDesignTimeDbContextFactory<DonationContext>
     {
-        public DonationDbContext CreateDbContext(string[] args)
+        public DonationContext CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -18,10 +19,10 @@ namespace Donation.Data.EF
                 .Build();
             var connectionString = configuration.GetConnectionString("DonationDb");
 
-            var optionsBuilder = new DbContextOptionsBuilder<DonationDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<DonationContext>();
             optionsBuilder.UseSqlServer(connectionString);
 
-            return new DonationDbContext(optionsBuilder.Options);
+            return new DonationContext(optionsBuilder.Options);
         }
     }
 }

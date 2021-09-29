@@ -12,8 +12,8 @@ namespace Donation.Business.Organizations
 {
     public class OrganizationService : IOrganizationService
     {
-        private readonly DonationDbContext _context;
-        public OrganizationService(DonationDbContext context)
+        private readonly DonationContext _context;
+        public OrganizationService(DonationContext context)
         {
             _context = context;
         }

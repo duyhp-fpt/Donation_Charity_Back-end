@@ -19,8 +19,6 @@ D:\Donation_Charity_Back-end\DonationWeb\Donation.API\obj\Debug\netcoreapp3.1\Do
 D:\Donation_Charity_Back-end\DonationWeb\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.dll
 D:\Donation_Charity_Back-end\DonationWeb\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.pdb
 D:\Donation_Charity_Back-end\DonationWeb\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.genruntimeconfig.cache
-D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\appsettings.Development.json
-D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Donation.API.exe
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Donation.API.deps.json
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Donation.API.runtimeconfig.json
