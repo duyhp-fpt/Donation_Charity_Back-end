@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using Donation.Data.Entities;
 
 namespace Donation.Business.Admins
 {
     public class AdminService : IAdminService
     {
-        private readonly DonationDbContext _context;
-        public AdminService(DonationDbContext context)
+        private readonly DonationContext _context;
+        public AdminService(DonationContext context)
         {
             _context = context;
         }
