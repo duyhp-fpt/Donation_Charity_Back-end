@@ -17,7 +17,7 @@ namespace Donation.Data.EF
         {
             //base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new AdminConfiguration());
-
+            modelBuilder.ApplyConfiguration(new OrganizationConfiguration());
         }
 
         public DbSet<Admin> Admins { get; set; }
