@@ -7,6 +7,8 @@ using Donation.Business.Organizations;
 using Donation.Business.Payment;
 using Donation.Business.PaymentEvidence;
 using Donation.Business.Product;
+using Donation.Business.RecordAction;
+using Donation.Business.Transaction;
 using Donation.Data.EF;
 using Donation.Data.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -47,6 +49,8 @@ namespace Donation.API
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IPaymentService, PaymentService>();
             services.AddTransient<IPaymentEvidenceService, PaymentEvidenceService>();
+            services.AddTransient<IRecordActionService, RecordActionService>();
+            services.AddTransient<ITransactionService, TransactionService>();
 
             services.AddControllersWithViews();
             services.AddSwaggerGen();
