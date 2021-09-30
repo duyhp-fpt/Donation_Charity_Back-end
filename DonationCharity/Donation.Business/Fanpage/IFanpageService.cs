@@ -11,7 +11,7 @@ namespace Donation.Business.Fanpage
         Task<List<FanpageViewModel>> GetAll();
         Task<FanpageViewModel> GetById(int id);
         Task<int> Create(FanpageCreateRequest request);
-        Task<int> Update(FanpageUpdateReqeust request);
+        Task<int> Update(FanpageUpdateRequest request);
         Task<int> Delete(int id);
     }
 }

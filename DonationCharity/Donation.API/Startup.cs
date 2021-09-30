@@ -4,6 +4,9 @@ using Donation.Business.DonationCase;
 using Donation.Business.Donator;
 using Donation.Business.Fanpage;
 using Donation.Business.Organizations;
+using Donation.Business.Payment;
+using Donation.Business.PaymentEvidence;
+using Donation.Business.Product;
 using Donation.Data.EF;
 using Donation.Data.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -41,6 +44,9 @@ namespace Donation.API
             services.AddTransient<IDonatorService, DonatorService>();
             services.AddTransient<IFanpageService, FanpageService>();
             services.AddTransient<IDonationCaseService, DonationCaseService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IPaymentService, PaymentService>();
+            services.AddTransient<IPaymentEvidenceService, PaymentEvidenceService>();
 
             services.AddControllersWithViews();
             services.AddSwaggerGen();

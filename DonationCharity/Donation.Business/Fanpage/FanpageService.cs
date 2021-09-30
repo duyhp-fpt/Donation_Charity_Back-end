@@ -61,7 +61,7 @@ namespace Donation.Business.Fanpage
             }).FirstOrDefaultAsync();
         }
 
-        public async Task<int> Update(FanpageUpdateReqeust request)
+        public async Task<int> Update(FanpageUpdateRequest request)
         {
             var fanpage = await _context.Fanpages.FindAsync(request.FanpageId);
             if (fanpage == null) throw new Exception("not found");
