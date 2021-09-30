@@ -61,5 +61,12 @@ namespace Donation.API.Controllers
             if (affectedResult == 0) return BadRequest();
             return Ok("update success");
         }
+
+        [HttpGet("paging")]
+        public async Task<ActionResult> GetAllPaging([FromQuery] GetCampaignPagingRequest request)
+        {
+            var campaign = await _campaignService.GetAllPaging(request);
+            return Ok(campaign);
+        }
     }
 }

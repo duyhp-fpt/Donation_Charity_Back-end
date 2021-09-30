@@ -7,6 +7,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Donation.Data.Entities;
 using Donation.Business.Campaign.dto;
+using Donation.Business.Paging;
 
 namespace Donation.Business.Campaign
 {
@@ -55,6 +56,49 @@ namespace Donation.Business.Campaign
                 PaymentId = (int)x.c.PaymentId,
                 Title = x.c.Title
             }).ToListAsync();
+        }
+
+        public async Task<PageResult<CampaignViewModel>> GetAllPaging(GetCampaignPagingRequest request)
+        {
+            var query = from c in _context.Campaigns
+                        join dc in _context.DonationCases on c.DonationCaseId equals dc.DonationCaseId
+                        select new { c, dc };
+            //filter
+            if (!string.IsNullOrEmpty(request.keyword))
+                query = query.Where(x => x.c.CampaignName.Contains(request.keyword));
+
+            if(request.DonationCaseId != null && request.DonationCaseId != 0)
+            {
+                query = query.Where(p => p.dc.DonationCaseId == request.DonationCaseId);
+            }
+            //paging
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(x => new CampaignViewModel()
+                {
+                    CampaignId = x.c.CampaignId,
+                    CampaignName = x.c.CampaignName,
+                    CardNumber = x.c.CardNumber,
+                    DateCreate = (DateTime)x.c.DateCreate,
+                    Description = x.c.Description,
+                    DonationCaseId = (int)x.c.DonationCaseId,
+                    Image = x.c.Image,
+                    OrganizationId = (int)x.c.OrganizationId,
+                    PaymentId = (int)x.c.PaymentId,
+                    Title = x.c.Title
+                }).ToListAsync();
+
+            // select and projection
+            var pagedResult = new PageResult<CampaignViewModel>()
+            {
+                TotalRecord = totalRow,
+                PageSize = request.PageSize,
+                PageIndex = request.PageIndex,
+                Items = data
+            };
+            return pagedResult;
         }
 
         public async Task<CampaignViewModel> GetById(int id)
