@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Donation.Business.Fanpage.dto
 {
-    public class FanpageUpdateReqeust
+    public class FanpageUpdateRequest
     {
         public int FanpageId { get; set; }
         public string Link { get; set; }

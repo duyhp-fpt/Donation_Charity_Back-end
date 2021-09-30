@@ -1,5 +1,5 @@
-﻿using Donation.Business.Fanpage;
-using Donation.Business.Fanpage.dto;
+﻿using Donation.Business.Product;
+using Donation.Business.Product.dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,50 +11,50 @@ namespace Donation.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FanpagesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly IFanpageService _fanpageService;
-        public FanpagesController(IFanpageService fanpageService)
+        private readonly IProductService _productService;
+        public ProductsController (IProductService productService)
         {
-            _fanpageService = fanpageService;
+            _productService = productService;
         }
 
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            var fanpage = await _fanpageService.GetAll();
-            return Ok(fanpage);
+            var product = await _productService.GetAll();
+            return Ok(product);
         }
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int id)
         {
-            var fanpage = await _fanpageService.GetById(id);
-            if (fanpage == null) return BadRequest("Not found fanpage");
-            return Ok(fanpage);
+            var product = await _productService.GetById(id);
+            if (product == null) return BadRequest("Not found product");
+            return Ok(product);
         }
 
         [HttpPost]
         [Consumes("multipart/form-data")]
-        public async Task<ActionResult> Create([FromForm] FanpageCreateRequest request)
+        public async Task<ActionResult> Create([FromForm] ProductCreateRequest request)
         {
-            var fanpageId = await _fanpageService.Create(request);
+            var fanpageId = await _productService.Create(request);
             if (fanpageId == 0)
                 return BadRequest();
-            var fanpage = await _fanpageService.GetById(fanpageId);
+            var fanpage = await _productService.GetById(fanpageId);
 
             return CreatedAtAction(nameof(GetById), new { id = fanpageId }, fanpage);
         }
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
-        public async Task<ActionResult> Update([FromRoute] int id, [FromForm] FanpageUpdateRequest request)
+        public async Task<ActionResult> Update([FromRoute] int id, [FromForm] ProductUpdateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            request.FanpageId = id;
-            var affectedResult = await _fanpageService.Update(request);
+            request.ProductId = id;
+            var affectedResult = await _productService.Update(request);
             if (affectedResult == 0) return BadRequest();
             return Ok("update success");
         }
@@ -62,7 +62,7 @@ namespace Donation.API.Controllers
         [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete(int Id)
         {
-            var affectedResult = await _fanpageService.Delete(Id);
+            var affectedResult = await _productService.Delete(Id);
             if (affectedResult == 0)
                 return BadRequest();
             return Ok("Delete Success");
