@@ -12,6 +12,6 @@ namespace Donation.Business.Admins
         Task<List<AdminViewModel>> GetAllAdmin();
         Task<AdminViewModel> GetAdminById(int id);
 
-        Task<Admin> loginAdmin(string userName,string password);
+        Task<AdminViewModel> loginAdmin(string userName,string password);
     }
 }

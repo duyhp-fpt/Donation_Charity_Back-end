@@ -48,7 +48,7 @@ namespace Donation.Business.Admins
             }).ToListAsync();
         }
 
-        public async Task<Admin> loginAdmin(string userName, string password)
+        public async Task<AdminViewModel> loginAdmin(string userName, string password)
         {
             var query =from admin in _context.Admins
                        where admin.UserName == userName && admin.Password==password
@@ -60,10 +60,16 @@ namespace Donation.Business.Admins
                 PhoneNumber = x.admin.PhoneNumber,
                 Email = x.admin.Email
             }).FirstOrDefaultAsync();*/
-            Admin admin1 = (from admin in _context.Admins
+            /*Admin admin1 = (from admin in _context.Admins
                                      where admin.UserName == userName && admin.Password == password
-                                     select admin).FirstOrDefault();
-            return admin1;
+                                     select admin).FirstOrDefault();*/
+            return await query.Select(x => new AdminViewModel()
+            {
+                AdminId = x.admin.AdminId,
+                UserName = x.admin.UserName,
+                PhoneNumber = x.admin.PhoneNumber,
+                Email = x.admin.Email
+            }).FirstOrDefaultAsync(); ;
         }
     }
 }
