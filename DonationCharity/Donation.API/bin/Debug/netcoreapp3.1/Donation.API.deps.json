@@ -2334,7 +2334,8 @@
       },
       "Donation.Business/1.0.0": {
         "dependencies": {
-          "Donation.Data": "1.0.0"
+          "Donation.Data": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.2.2"
         },
         "runtime": {
           "Donation.Business.dll": {}

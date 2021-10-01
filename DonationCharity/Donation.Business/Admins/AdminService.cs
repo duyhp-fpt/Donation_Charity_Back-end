@@ -48,18 +48,22 @@ namespace Donation.Business.Admins
             }).ToListAsync();
         }
 
-        public async Task<AdminViewModel> loginAdmin(LoginRequest request)
+        public async Task<Admin> loginAdmin(string userName, string password)
         {
             var query =from admin in _context.Admins
-                       where admin.UserName == request.UserName && admin.Password==request.Password
+                       where admin.UserName == userName && admin.Password==password
                        select new { admin};
-            return await query.Select(x => new AdminViewModel()
+            /*return await query.Select(x => new AdminViewModel()
             {
                 AdminId = x.admin.AdminId,
                 UserName = x.admin.UserName,
                 PhoneNumber = x.admin.PhoneNumber,
                 Email = x.admin.Email
-            }).FirstOrDefaultAsync();
+            }).FirstOrDefaultAsync();*/
+            Admin admin1 = (from admin in _context.Admins
+                                     where admin.UserName == userName && admin.Password == password
+                                     select admin).FirstOrDefault();
+            return admin1;
         }
     }
 }

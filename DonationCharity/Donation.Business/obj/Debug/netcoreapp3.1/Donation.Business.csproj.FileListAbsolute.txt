@@ -21,3 +21,16 @@ D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcore
 D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Data.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Data.pdb
 D:\Donation_Charity_Back-end\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.CopyComplete
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Business.deps.json
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Business.dll
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Business.pdb
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Data.dll
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\bin\Debug\netcoreapp3.1\Donation.Data.pdb
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.AssemblyReference.cache
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.AssemblyInfoInputs.cache
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.AssemblyInfo.cs
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.CoreCompileInputs.cache
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.csproj.CopyComplete
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.dll
+C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Business\obj\Debug\netcoreapp3.1\Donation.Business.pdb

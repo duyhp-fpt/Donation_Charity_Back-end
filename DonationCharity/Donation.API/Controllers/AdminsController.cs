@@ -31,6 +31,13 @@ namespace Donation.API.Controllers
             if (admin == null) return BadRequest("cannot find admin");
             return Ok(admin);
         }
+        [HttpPost("{Login}")]
+        public async Task<ActionResult> GetAminByUsernameAndPassword(string userName, string password)
+        {
+            var admin = await _adminService.loginAdmin(userName, password);
+            if (admin == null) return BadRequest("cannot find admin");
+            return Ok(admin);
+        }
 
     }
 }

@@ -2710,7 +2710,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Donation.Data": "1.0.0"
+          "Donation.Data": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.2.2"
         },
         "compile": {
           "bin/placeholder/Donation.Business.dll": {}

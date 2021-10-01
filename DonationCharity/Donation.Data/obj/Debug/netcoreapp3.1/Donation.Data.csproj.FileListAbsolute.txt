@@ -25,7 +25,6 @@ C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\bin
 C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\bin\Debug\netcoreapp3.1\Donation.Data.runtimeconfig.dev.json
 C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\bin\Debug\netcoreapp3.1\Donation.Data.dll
 C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\bin\Debug\netcoreapp3.1\Donation.Data.pdb
-C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.csproj.AssemblyReference.cache
 C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.AssemblyInfoInputs.cache
 C:\Users\huynh\OneDrive\Máy tính\BE_DONATION\DonationCharity\Donation.Data\obj\Debug\netcoreapp3.1\Donation.Data.AssemblyInfo.cs
