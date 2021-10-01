@@ -18,6 +18,7 @@ namespace Donation.Business.Admins
             _context = context;
         }
 
+
         public async Task<AdminViewModel> GetAdminById(int id)
         {
             var query = from c in _context.Admins
@@ -45,6 +46,20 @@ namespace Donation.Business.Admins
                 Email = a.c.Email,
                 PhoneNumber = a.c.PhoneNumber
             }).ToListAsync();
+        }
+
+        public async Task<AdminViewModel> loginAdmin(LoginRequest request)
+        {
+            var query =from admin in _context.Admins
+                       where admin.UserName == request.UserName && admin.Password==request.Password
+                       select new { admin};
+            return await query.Select(x => new AdminViewModel()
+            {
+                AdminId = x.admin.AdminId,
+                UserName = x.admin.UserName,
+                PhoneNumber = x.admin.PhoneNumber,
+                Email = x.admin.Email
+            }).FirstOrDefaultAsync();
         }
     }
 }

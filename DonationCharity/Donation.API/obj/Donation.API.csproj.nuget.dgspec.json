@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.API\\Donation.API.csproj": {}
+    "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.API\\Donation.API.csproj": {}
   },
   "projects": {
-    "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.API\\Donation.API.csproj": {
+    "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.API\\Donation.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.API\\Donation.API.csproj",
+        "projectUniqueName": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.API\\Donation.API.csproj",
         "projectName": "Donation.API",
-        "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.API\\Donation.API.csproj",
-        "packagesPath": "C:\\Users\\tanda\\.nuget\\packages\\",
-        "outputPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.API\\obj\\",
+        "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.API\\Donation.API.csproj",
+        "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj": {
-                "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj"
+              "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj": {
+                "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj"
               },
-              "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
-                "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj"
+              "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
+                "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj"
               }
             }
           }
@@ -88,17 +88,17 @@
         }
       }
     },
-    "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj": {
+    "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
+        "projectUniqueName": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
         "projectName": "Donation.Business",
-        "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
-        "packagesPath": "C:\\Users\\tanda\\.nuget\\packages\\",
-        "outputPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\obj\\",
+        "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
+        "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,8 +112,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
-                "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj"
+              "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
+                "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj"
               }
             }
           }
@@ -146,17 +146,17 @@
         }
       }
     },
-    "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
+    "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj",
+        "projectUniqueName": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj",
         "projectName": "Donation.Data",
-        "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj",
-        "packagesPath": "C:\\Users\\tanda\\.nuget\\packages\\",
-        "outputPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\obj\\",
+        "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj",
+        "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

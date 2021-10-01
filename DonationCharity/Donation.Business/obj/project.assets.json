@@ -5083,19 +5083,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tanda\\.nuget\\packages\\": {}
+    "C:\\Users\\huynh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
+      "projectUniqueName": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
       "projectName": "Donation.Business",
-      "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
-      "packagesPath": "C:\\Users\\tanda\\.nuget\\packages\\",
-      "outputPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Business\\obj\\",
+      "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\Donation.Business.csproj",
+      "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5109,8 +5109,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
-              "projectPath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj"
+            "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj": {
+              "projectPath": "C:\\Users\\huynh\\OneDrive\\Máy tính\\BE_DONATION\\DonationCharity\\Donation.Data\\Donation.Data.csproj"
             }
           }
         }

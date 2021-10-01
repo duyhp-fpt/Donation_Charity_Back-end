@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DonationCharity",
+    "\\DonationCharity\\Donation.API",
+    "\\DonationCharity\\Donation.API\\Controllers",
+    "\\DonationCharity\\Donation.API\\Properties",
+    "\\DonationCharity\\Donation.Data",
+    "\\DonationCharity\\Donation.Data\\EF",
+    "\\DonationCharity\\Donation.Data\\Entities"
   ],
   "PreviewInSolutionExplorer": false
 }
