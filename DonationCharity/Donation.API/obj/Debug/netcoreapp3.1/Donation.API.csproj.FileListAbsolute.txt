@@ -82,7 +82,6 @@ D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Donation_Charity_Back-end\DonationCharity\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -165,3 +164,13 @@ D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Cert\firebase.json
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\FirebaseAdmin.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Google.Api.Gax.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Google.Api.Gax.Rest.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Google.Apis.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.MvcApplicationPartsAssemblyInfo.cs

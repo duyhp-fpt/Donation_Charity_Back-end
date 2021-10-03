@@ -21,8 +21,7 @@ namespace Donation.Business.RecordAction
         {
             var recordAction = new Donation.Data.Entities.RecordAction()
             {
-                OrganizationId = request.OrganizationId,
-                AdminId = request.AdminId,
+                UserId = request.UserId,
                 Action = request.Action,
                 Time = request.Time
             };
@@ -46,8 +45,7 @@ namespace Donation.Business.RecordAction
             return await query.Select(x => new RecordActionViewModel()
             {
                 RecordId = x.c.RecordId,
-                OrganizationId = (int)x.c.OrganizationId,
-                AdminId = (int)x.c.AdminId,
+                UserId = (int)x.c.UserId,
                 Action = x.c.Action,
                 Time = (DateTime)x.c.Time
             }).ToListAsync();
@@ -61,8 +59,7 @@ namespace Donation.Business.RecordAction
             return await query.Select(x => new RecordActionViewModel()
             {
                 RecordId = x.c.RecordId,
-                OrganizationId = (int)x.c.OrganizationId,
-                AdminId = (int)x.c.AdminId,
+                UserId = (int)x.c.UserId,
                 Action = x.c.Action,
                 Time = (DateTime)x.c.Time
             }).FirstOrDefaultAsync();
@@ -73,8 +70,7 @@ namespace Donation.Business.RecordAction
             var recordAction = await _context.RecordActions.FindAsync(request.RecordId);
             if (recordAction == null) throw new Exception("not found");
 
-            recordAction.OrganizationId = request.OrganizationId;
-            recordAction.AdminId = request.AdminId;
+            recordAction.UserId = request.UserId;
             recordAction.Action = request.Action;
             recordAction.Time = request.Time;
             return await _context.SaveChangesAsync();

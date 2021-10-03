@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
 
 namespace Donation.Data.Entities
 {
@@ -10,7 +12,8 @@ namespace Donation.Data.Entities
         public int FanpageId { get; set; }
         public string Link { get; set; }
         public int? OrganizationId { get; set; }
+        public bool? Status { get; set; }
 
-        public virtual Organization Organization { get; set; }
+        public virtual User Organization { get; set; }
     }
 }

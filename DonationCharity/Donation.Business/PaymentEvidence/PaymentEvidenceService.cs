@@ -22,7 +22,9 @@ namespace Donation.Business.PaymentEvidence
             var paymentEvidence = new Donation.Data.Entities.PaymentEvidence()
             {
                 PaymentEvidenceImage = request.PaymentEvidenceImage,
-                PaymentEvidenceDate = request.PaymentEvidenceDate
+                PaymentEvidenceDate = request.PaymentEvidenceDate,
+                ProductId = request.ProductId
+                
             };
             _context.PaymentEvidences.Add(paymentEvidence);
             await _context.SaveChangesAsync();
@@ -45,7 +47,9 @@ namespace Donation.Business.PaymentEvidence
             {
                 PaymentEvidenceId = x.c.PaymentEvidenceId,
                 PaymentEvidenceImage = x.c.PaymentEvidenceImage,
-                PaymentEvidenceDate = (DateTime)x.c.PaymentEvidenceDate
+                PaymentEvidenceDate = (DateTime)x.c.PaymentEvidenceDate,
+                ProductId = x.c.ProductId
+
             }).ToListAsync();
         }
 
@@ -58,7 +62,8 @@ namespace Donation.Business.PaymentEvidence
             {
                 PaymentEvidenceId = x.c.PaymentEvidenceId,
                 PaymentEvidenceImage = x.c.PaymentEvidenceImage,
-                PaymentEvidenceDate = (DateTime)x.c.PaymentEvidenceDate
+                PaymentEvidenceDate = (DateTime)x.c.PaymentEvidenceDate,
+                ProductId = x.c.ProductId
             }).FirstOrDefaultAsync();
         }
 
@@ -69,6 +74,7 @@ namespace Donation.Business.PaymentEvidence
 
             paymentEvidence.PaymentEvidenceImage = request.PaymentEvidenceImage;
             paymentEvidence.PaymentEvidenceDate = request.PaymentEvidenceDate;
+            paymentEvidence.ProductId = request.ProductId;
             return await _context.SaveChangesAsync();
         }
     }

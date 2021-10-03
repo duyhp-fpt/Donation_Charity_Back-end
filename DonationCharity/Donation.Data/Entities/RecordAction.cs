@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
 
 namespace Donation.Data.Entities
 {
     public partial class RecordAction
     {
         public int RecordId { get; set; }
-        public int? OrganizationId { get; set; }
         public string Action { get; set; }
         public DateTime? Time { get; set; }
-        public int? AdminId { get; set; }
+        public int? UserId { get; set; }
+        public bool? Status { get; set; }
 
-        public virtual Admin Admin { get; set; }
-        public virtual Organization Organization { get; set; }
+        public virtual User User { get; set; }
     }
 }

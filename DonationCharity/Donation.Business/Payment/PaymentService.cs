@@ -24,7 +24,6 @@ namespace Donation.Business.Payment
             {
                 PaymentDate = request.PaymentDate,
                 TotalPrice = request.TotalPrice,
-                PaymentEvidenceId = request.PaymentEvidenceId
             };
             _context.Payments.Add(payment);
             await _context.SaveChangesAsync();
@@ -47,7 +46,6 @@ namespace Donation.Business.Payment
             {
                 PaymentId = x.c.PaymentId,
                 PaymentDate = (DateTime)x.c.PaymentDate,
-                PaymentEvidenceId = (int)x.c.PaymentEvidenceId,
                 TotalPrice = (double)x.c.TotalPrice
             }).ToListAsync();
         }
@@ -61,7 +59,6 @@ namespace Donation.Business.Payment
             {
                 PaymentId = x.c.PaymentId,
                 PaymentDate = (DateTime)x.c.PaymentDate,
-                PaymentEvidenceId = (int)x.c.PaymentEvidenceId,
                 TotalPrice = (double)x.c.TotalPrice
             }).FirstOrDefaultAsync();
         }
@@ -73,7 +70,6 @@ namespace Donation.Business.Payment
 
             payment.PaymentDate = request.PaymentDate;
             payment.TotalPrice = request.TotalPrice;
-            payment.PaymentEvidenceId = request.PaymentEvidenceId;
             return await _context.SaveChangesAsync();
         }
     }

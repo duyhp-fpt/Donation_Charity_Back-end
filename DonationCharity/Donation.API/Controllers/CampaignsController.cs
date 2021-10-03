@@ -3,6 +3,7 @@ using Donation.Business.Campaign.dto;
 using Donation.Business.Organizations;
 using Donation.Business.Organizations.dto;
 using Donation.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,6 +15,7 @@ namespace Donation.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CampaginsController : ControllerBase
     {
         private readonly ICampaignService _campaignService;

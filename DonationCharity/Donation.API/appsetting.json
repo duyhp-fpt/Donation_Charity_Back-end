@@ -9,5 +9,9 @@
       "Microsoft.Hosting.Lifetime": "Information"
     }
   },
+  "AppSettings": {
+    "Secret": "das789dc677k70ovhh3eikkcbmz7wjvcbsufjj98",
+    "AdminUID": "aS9Phaqh1Egxx9SXAB7FsNW5dH92"
+  },
   "AllowedHosts": "*"
 }

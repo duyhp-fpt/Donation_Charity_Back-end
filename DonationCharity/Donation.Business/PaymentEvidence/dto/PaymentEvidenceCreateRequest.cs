@@ -8,5 +8,6 @@ namespace Donation.Business.PaymentEvidence.dto
     {
         public string PaymentEvidenceImage { get; set; }
         public DateTime PaymentEvidenceDate { get; set; }
+        public int? ProductId { get; set; }
     }
 }

@@ -17,43 +17,19 @@ namespace Donation.Data.Entities
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Campaign> Campaigns { get; set; }
         public virtual DbSet<DonationCase> DonationCases { get; set; }
-        public virtual DbSet<Donator> Donators { get; set; }
         public virtual DbSet<Fanpage> Fanpages { get; set; }
-        public virtual DbSet<Organization> Organizations { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentEvidence> PaymentEvidences { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<RecordAction> RecordActions { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
-
-            modelBuilder.Entity<Admin>(entity =>
-            {
-                entity.ToTable("Admin");
-
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Password)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.PhoneNumber)
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.UserName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<Campaign>(entity =>
             {
                 entity.ToTable("Campaign");
@@ -74,7 +50,7 @@ namespace Donation.Data.Entities
                 entity.HasOne(d => d.Organization)
                     .WithMany(p => p.Campaigns)
                     .HasForeignKey(d => d.OrganizationId)
-                    .HasConstraintName("FK__Campaign__Organi__46E78A0C");
+                    .HasConstraintName("FK_Campaign_User");
 
                 entity.HasOne(d => d.Payment)
                     .WithMany(p => p.Campaigns)
@@ -87,23 +63,6 @@ namespace Donation.Data.Entities
                 entity.ToTable("DonationCase");
             });
 
-            modelBuilder.Entity<Donator>(entity =>
-            {
-                entity.ToTable("Donator");
-
-                entity.Property(e => e.Address).HasMaxLength(100);
-
-                entity.Property(e => e.DonatorName).HasMaxLength(50);
-
-                entity.Property(e => e.Email).HasMaxLength(50);
-
-                entity.Property(e => e.Password).HasMaxLength(50);
-
-                entity.Property(e => e.PhoneNumber)
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<Fanpage>(entity =>
             {
                 entity.ToTable("Fanpage");
@@ -113,24 +72,7 @@ namespace Donation.Data.Entities
                 entity.HasOne(d => d.Organization)
                     .WithMany(p => p.Fanpages)
                     .HasForeignKey(d => d.OrganizationId)
-                    .HasConstraintName("FK_Fanpage_Organization");
-            });
-
-            modelBuilder.Entity<Organization>(entity =>
-            {
-                entity.ToTable("Organization");
-
-                entity.Property(e => e.Address).HasMaxLength(100);
-
-                entity.Property(e => e.Email).HasMaxLength(50);
-
-                entity.Property(e => e.OrganizationName).HasMaxLength(50);
-
-                entity.Property(e => e.Password).HasMaxLength(50);
-
-                entity.Property(e => e.PhoneNumber)
-                    .HasMaxLength(15)
-                    .IsUnicode(false);
+                    .HasConstraintName("FK_Fanpage_User");
             });
 
             modelBuilder.Entity<Payment>(entity =>
@@ -138,11 +80,6 @@ namespace Donation.Data.Entities
                 entity.ToTable("Payment");
 
                 entity.Property(e => e.PaymentDate).HasColumnType("date");
-
-                entity.HasOne(d => d.PaymentEvidence)
-                    .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.PaymentEvidenceId)
-                    .HasConstraintName("FK__Payment__Payment__412EB0B6");
             });
 
             modelBuilder.Entity<PaymentEvidence>(entity =>
@@ -152,6 +89,11 @@ namespace Donation.Data.Entities
                 entity.Property(e => e.PaymentEvidenceDate).HasColumnType("date");
 
                 entity.Property(e => e.PaymentEvidenceImage).HasMaxLength(50);
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.PaymentEvidences)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_PaymentEvidence_Product");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -177,15 +119,21 @@ namespace Donation.Data.Entities
 
                 entity.Property(e => e.Time).HasColumnType("datetime");
 
-                entity.HasOne(d => d.Admin)
+                entity.HasOne(d => d.User)
                     .WithMany(p => p.RecordActions)
-                    .HasForeignKey(d => d.AdminId)
-                    .HasConstraintName("FK__RecordAct__Admin__52593CB8");
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_RecordAction_User");
+            });
 
-                entity.HasOne(d => d.Organization)
-                    .WithMany(p => p.RecordActions)
-                    .HasForeignKey(d => d.OrganizationId)
-                    .HasConstraintName("FK__RecordAct__Organ__5165187F");
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("Role");
+
+                entity.Property(e => e.RoleId).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(20)
+                    .IsFixedLength();
             });
 
             modelBuilder.Entity<Transaction>(entity =>
@@ -206,7 +154,35 @@ namespace Donation.Data.Entities
                 entity.HasOne(d => d.Donator)
                     .WithMany(p => p.Transactions)
                     .HasForeignKey(d => d.DonatorId)
-                    .HasConstraintName("FK__Transacti__Donat__4BAC3F29");
+                    .HasConstraintName("FK_Transaction_User");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("User");
+
+                entity.Property(e => e.Address).HasMaxLength(50);
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.PhoneNumber).HasMaxLength(50);
+
+                entity.Property(e => e.Status).HasMaxLength(50);
+
+                entity.Property(e => e.Uid).HasMaxLength(50);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_User_Role");
             });
 
             OnModelCreatingPartial(modelBuilder);
