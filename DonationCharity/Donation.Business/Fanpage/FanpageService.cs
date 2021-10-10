@@ -21,7 +21,8 @@ namespace Donation.Business.Fanpage
             var fanpage = new Donation.Data.Entities.Fanpage()
             {
                 Link = request.Link,
-                OrganizationId = request.OrganizationId
+                OrganizationId = request.OrganizationId,
+                Status = true
             };
             _context.Fanpages.Add(fanpage);
             await _context.SaveChangesAsync();
@@ -32,13 +33,14 @@ namespace Donation.Business.Fanpage
         {
             var fanpage = await _context.Fanpages.FindAsync(id);
             if (fanpage == null) throw new Exception("not found this fanpage");
-            _context.Fanpages.Remove(fanpage);
+            fanpage.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<FanpageViewModel>> GetAll()
         {
             var query = from c in _context.Fanpages
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new FanpageViewModel()
             {
@@ -51,7 +53,7 @@ namespace Donation.Business.Fanpage
         public async Task<FanpageViewModel> GetById(int id)
         {
             var query = from c in _context.Fanpages
-                        where c.FanpageId == id
+                        where c.FanpageId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new FanpageViewModel()
             {

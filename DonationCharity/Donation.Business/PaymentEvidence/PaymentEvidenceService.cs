@@ -23,8 +23,9 @@ namespace Donation.Business.PaymentEvidence
             {
                 PaymentEvidenceImage = request.PaymentEvidenceImage,
                 PaymentEvidenceDate = request.PaymentEvidenceDate,
-                ProductId = request.ProductId
-                
+                ProductId = request.ProductId,
+                Status = true
+
             };
             _context.PaymentEvidences.Add(paymentEvidence);
             await _context.SaveChangesAsync();
@@ -35,13 +36,14 @@ namespace Donation.Business.PaymentEvidence
         {
             var paymentEvidence = await _context.PaymentEvidences.FindAsync(id);
             if (paymentEvidence == null) throw new Exception("not found this payment evidence");
-            _context.PaymentEvidences.Remove(paymentEvidence);
+            paymentEvidence.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<PaymentEvidenceViewModel>> GetAll()
         {
             var query = from c in _context.PaymentEvidences
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new PaymentEvidenceViewModel()
             {
@@ -56,7 +58,7 @@ namespace Donation.Business.PaymentEvidence
         public async Task<PaymentEvidenceViewModel> GetById(int id)
         {
             var query = from c in _context.PaymentEvidences
-                        where c.PaymentEvidenceId == id
+                        where c.PaymentEvidenceId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new PaymentEvidenceViewModel()
             {

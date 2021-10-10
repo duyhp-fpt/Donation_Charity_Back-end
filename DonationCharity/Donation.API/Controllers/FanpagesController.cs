@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class FanpagesController : ControllerBase
     {
         private readonly IFanpageService _fanpageService;
@@ -20,12 +21,14 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAll()
         {
             var fanpage = await _fanpageService.GetAll();
             return Ok(fanpage);
         }
         [HttpGet("{id}")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetById(int id)
         {
             var fanpage = await _fanpageService.GetById(id);
@@ -35,6 +38,7 @@ namespace Donation.API.Controllers
 
         [HttpPost]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Create([FromForm] FanpageCreateRequest request)
         {
             var fanpageId = await _fanpageService.Create(request);
@@ -47,6 +51,7 @@ namespace Donation.API.Controllers
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Update([FromRoute] int id, [FromForm] FanpageUpdateRequest request)
         {
             if (!ModelState.IsValid)
@@ -60,6 +65,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> Delete(int Id)
         {
             var affectedResult = await _fanpageService.Delete(Id);

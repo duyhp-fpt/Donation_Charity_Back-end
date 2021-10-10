@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -21,21 +22,24 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAll()
         {
             var user = await _userService.GetAll();
             return Ok(user);
         }
         [HttpGet("{id}")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetById(int id)
         {
             var user = await _userService.GetById(id);
-            if (user == null) return BadRequest("Not found organization");
+            if (user == null) return BadRequest("Not found user");
             return Ok(user);
         }
 
         [HttpPost]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Create([FromForm] UserCreateRequest request)
         {
             var userId = await _userService.Create(request);
@@ -48,6 +52,7 @@ namespace Donation.API.Controllers
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Update([FromRoute] int id, [FromForm] UserUpdateRequest request)
         {
             if (!ModelState.IsValid)

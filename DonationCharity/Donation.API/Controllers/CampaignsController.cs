@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class CampaginsController : ControllerBase
     {
         private readonly ICampaignService _campaignService;
@@ -25,12 +25,14 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAll()
         {
             var campaign = await _campaignService.GetAll();
             return Ok(campaign);
         }
         [HttpGet("{id}")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetById(int id)
         {
             var campaign = await _campaignService.GetById(id);
@@ -39,6 +41,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion("1.0")]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Create([FromForm] CampaignCreateRequest request)
         {
@@ -51,6 +54,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [MapToApiVersion("1.0")]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Update([FromRoute] int id, [FromForm] CampaignUpdateRequest request)
         {
@@ -65,6 +69,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet("paging")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAllPaging([FromQuery] GetCampaignPagingRequest request)
         {
             var campaign = await _campaignService.GetAllPaging(request);

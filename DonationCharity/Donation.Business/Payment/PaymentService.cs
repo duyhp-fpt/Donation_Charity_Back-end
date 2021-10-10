@@ -24,6 +24,7 @@ namespace Donation.Business.Payment
             {
                 PaymentDate = request.PaymentDate,
                 TotalPrice = request.TotalPrice,
+                Status = true
             };
             _context.Payments.Add(payment);
             await _context.SaveChangesAsync();
@@ -34,13 +35,14 @@ namespace Donation.Business.Payment
         {
             var payment = await _context.Payments.FindAsync(id);
             if (payment == null) throw new Exception("not found this payment");
-            _context.Payments.Remove(payment);
+            payment.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<PaymentViewModel>> GetAll()
         {
             var query = from c in _context.Payments
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new PaymentViewModel()
             {
@@ -53,7 +55,7 @@ namespace Donation.Business.Payment
         public async Task<PaymentViewModel> GetById(int id)
         {
             var query = from c in _context.Payments
-                        where c.PaymentId == id
+                        where c.PaymentId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new PaymentViewModel()
             {

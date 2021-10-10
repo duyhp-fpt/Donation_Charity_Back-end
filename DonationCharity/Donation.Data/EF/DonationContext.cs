@@ -42,6 +42,8 @@ namespace Donation.Data.Entities
 
                 entity.Property(e => e.Image).HasMaxLength(50);
 
+                entity.Property(e => e.Status).HasDefaultValue(true);
+
                 entity.HasOne(d => d.DonationCase)
                     .WithMany(p => p.Campaigns)
                     .HasForeignKey(d => d.DonationCaseId)
@@ -61,6 +63,8 @@ namespace Donation.Data.Entities
             modelBuilder.Entity<DonationCase>(entity =>
             {
                 entity.ToTable("DonationCase");
+
+                entity.Property(e => e.Status).HasDefaultValue(true);
             });
 
             modelBuilder.Entity<Fanpage>(entity =>
@@ -68,6 +72,8 @@ namespace Donation.Data.Entities
                 entity.ToTable("Fanpage");
 
                 entity.Property(e => e.Link).HasMaxLength(100);
+
+                entity.Property(e => e.Status).HasDefaultValue(true);
 
                 entity.HasOne(d => d.Organization)
                     .WithMany(p => p.Fanpages)
@@ -80,6 +86,8 @@ namespace Donation.Data.Entities
                 entity.ToTable("Payment");
 
                 entity.Property(e => e.PaymentDate).HasColumnType("date");
+
+                entity.Property(e => e.Status).HasDefaultValue(true);
             });
 
             modelBuilder.Entity<PaymentEvidence>(entity =>
@@ -89,6 +97,8 @@ namespace Donation.Data.Entities
                 entity.Property(e => e.PaymentEvidenceDate).HasColumnType("date");
 
                 entity.Property(e => e.PaymentEvidenceImage).HasMaxLength(50);
+
+                entity.Property(e => e.Status).HasDefaultValue(true);
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.PaymentEvidences)
@@ -101,6 +111,8 @@ namespace Donation.Data.Entities
                 entity.ToTable("Product");
 
                 entity.Property(e => e.ProductName).HasMaxLength(100);
+
+                entity.Property(e => e.Status).HasDefaultValue(true);
 
                 entity.HasOne(d => d.Payment)
                     .WithMany(p => p.Products)
@@ -118,6 +130,8 @@ namespace Donation.Data.Entities
                 entity.Property(e => e.Action).HasMaxLength(100);
 
                 entity.Property(e => e.Time).HasColumnType("datetime");
+
+                entity.Property(e => e.Status).HasDefaultValue(true);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.RecordActions)
@@ -145,6 +159,7 @@ namespace Donation.Data.Entities
                 entity.Property(e => e.DonatorCardNumber)
                     .HasMaxLength(15)
                     .IsUnicode(false);
+                entity.Property(e => e.Status).HasDefaultValue(true);
 
                 entity.HasOne(d => d.Campaign)
                     .WithMany(p => p.Transactions)
@@ -175,7 +190,7 @@ namespace Donation.Data.Entities
 
                 entity.Property(e => e.PhoneNumber).HasMaxLength(50);
 
-                entity.Property(e => e.Status).HasMaxLength(50);
+                entity.Property(e => e.Status).HasMaxLength(50).HasDefaultValue(true);
 
                 entity.Property(e => e.Uid).HasMaxLength(50);
 

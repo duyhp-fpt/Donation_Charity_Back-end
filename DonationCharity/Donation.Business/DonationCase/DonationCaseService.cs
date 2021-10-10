@@ -23,6 +23,7 @@ namespace Donation.Business.DonationCase
             {
                 DonationCaseName = request.DonationCaseName,
                 Description = request.Description,
+                Status = true
             };
             _context.DonationCases.Add(donationCase);
             await _context.SaveChangesAsync();
@@ -33,13 +34,14 @@ namespace Donation.Business.DonationCase
         {
             var donationCase = await _context.DonationCases.FindAsync(id);
             if (donationCase == null) throw new Exception("not found this fanpage");
-            _context.DonationCases.Remove(donationCase);
+            donationCase.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<DonationCaseViewModel>> GetAll()
         {
             var query = from c in _context.DonationCases
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new DonationCaseViewModel()
             {
@@ -52,7 +54,7 @@ namespace Donation.Business.DonationCase
         public async Task<DonationCaseViewModel> GetById(int id)
         {
             var query = from c in _context.DonationCases
-                        where c.DonationCaseId == id
+                        where c.DonationCaseId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new DonationCaseViewModel()
             {

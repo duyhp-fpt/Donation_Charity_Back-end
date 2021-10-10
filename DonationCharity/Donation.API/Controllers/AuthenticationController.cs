@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthenticationService _authenticationService;
@@ -21,16 +23,17 @@ namespace Donation.API.Controllers
             _authenticationService = authenticationService;
         }
         [AllowAnonymous]
+        [MapToApiVersion("1.0")]
         [HttpPost("login")]
         public async Task<ActionResult> LoginWithIdTokenAsync(string idToken)
         {
             if (idToken == null) return BadRequest();
             try
             {
-                //FirebaseToken decodedToken = await FirebaseAuth.DefaultInstance
-                //    .VerifyIdTokenAsync(idToken);
-                //string uid = decodedToken.Uid;
-                string uid = idToken;
+                FirebaseToken decodedToken = await FirebaseAuth.DefaultInstance
+                    .VerifyIdTokenAsync(idToken);
+                string uid = decodedToken.Uid;
+                //string uid = idToken;
                 string jwtToken = _authenticationService.Authenticate(uid);
                 if (jwtToken.Length != 0)
                     return Ok(jwtToken);

@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class PaymentEvidencesController : ControllerBase
     {
         private readonly IPaymentEvidenceService _paymentEvidenceService;
@@ -21,12 +22,14 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAll()
         {
             var paymentEvidence = await _paymentEvidenceService.GetAll();
             return Ok(paymentEvidence);
         }
         [HttpGet("{id}")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetById(int id)
         {
             var paymentEvidence = await _paymentEvidenceService.GetById(id);
@@ -36,6 +39,7 @@ namespace Donation.API.Controllers
 
         [HttpPost]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Create([FromForm] PaymentEvidenceCreateRequest request)
         {
             var paymentEvidenceId = await _paymentEvidenceService.Create(request);
@@ -48,6 +52,7 @@ namespace Donation.API.Controllers
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Update([FromRoute] int id, [FromForm] PaymentEvidenceUpdateRequest request)
         {
             if (!ModelState.IsValid)
@@ -61,6 +66,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> Delete(int Id)
         {
             var affectedResult = await _paymentEvidenceService.Delete(Id);

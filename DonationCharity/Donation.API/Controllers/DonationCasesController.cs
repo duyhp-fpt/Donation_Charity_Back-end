@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class DonationCasesController : ControllerBase
     {
         private readonly IDonationCaseService _donationCaseService;
@@ -21,12 +22,14 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAll()
         {
             var donationCase = await _donationCaseService.GetAll();
             return Ok(donationCase);
         }
         [HttpGet("{id}")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetById(int id)
         {
             var donationCase = await _donationCaseService.GetById(id);
@@ -35,6 +38,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpPost]
+        [MapToApiVersion("1.0")]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Create([FromForm] DonationCaseCreateRequest request)
         {
@@ -47,6 +51,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [MapToApiVersion("1.0")]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Update([FromRoute] int id, [FromForm] DonationCaseUpdateRequest request)
         {
@@ -61,6 +66,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> Delete(int Id)
         {
             var affectedResult = await _donationCaseService.Delete(Id);

@@ -24,7 +24,8 @@ namespace Donation.Business.Product
                 ProductName = request.ProductName,
                 Amount = request.Amount,
                 Price = request.Price,
-                PaymentId = request.PaymentId
+                PaymentId = request.PaymentId,
+                Status = true
             };
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
@@ -35,13 +36,14 @@ namespace Donation.Business.Product
         {
             var product = await _context.Products.FindAsync(id);
             if (product == null) throw new Exception("not found this product");
-            _context.Products.Remove(product);
+            product.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<ProductViewModel>> GetAll()
         {
             var query = from c in _context.Products
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new ProductViewModel()
             {
@@ -56,7 +58,7 @@ namespace Donation.Business.Product
         public async Task<ProductViewModel> GetById(int id)
         {
             var query = from c in _context.Products
-                        where c.ProductId == id
+                        where c.ProductId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new ProductViewModel()
             {

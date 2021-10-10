@@ -23,7 +23,8 @@ namespace Donation.Business.RecordAction
             {
                 UserId = request.UserId,
                 Action = request.Action,
-                Time = request.Time
+                Time = request.Time,
+                Status = true
             };
             _context.RecordActions.Add(recordAction);
             await _context.SaveChangesAsync();
@@ -34,13 +35,14 @@ namespace Donation.Business.RecordAction
         {
             var recordAction = await _context.RecordActions.FindAsync(id);
             if (recordAction == null) throw new Exception("not found this record action");
-            _context.RecordActions.Remove(recordAction);
+            recordAction.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<RecordActionViewModel>> GetAll()
         {
             var query = from c in _context.RecordActions
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new RecordActionViewModel()
             {
@@ -54,7 +56,7 @@ namespace Donation.Business.RecordAction
         public async Task<RecordActionViewModel> GetById(int id)
         {
             var query = from c in _context.RecordActions
-                        where c.RecordId == id
+                        where c.RecordId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new RecordActionViewModel()
             {

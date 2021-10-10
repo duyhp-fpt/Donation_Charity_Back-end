@@ -27,7 +27,7 @@ namespace Donation.Business.Organizations
                 Password = request.Password,
                 Address = request.Address,
                 PhoneNumber = request.PhoneNumber,
-                Status = request.Status,
+                Status = "true",
                 RoleId = request.RoleId,
                 Uid = request.Uid
                 
@@ -41,6 +41,7 @@ namespace Donation.Business.Organizations
         public async Task<List<UserViewModel>> GetAll()
         {
             var query = from c in _context.Users
+                        where c.Status == "true"
                         select new { c };
 
             return await query.Select(x => new UserViewModel()
@@ -59,7 +60,7 @@ namespace Donation.Business.Organizations
         public async Task<UserViewModel> GetById(int id)
         {
             var query = from c in _context.Users
-                        where c.Id == id
+                        where c.Id == id && c.Status == "true"
                         select new { c };
 
             return await query.Select(x => new UserViewModel()
@@ -86,7 +87,7 @@ namespace Donation.Business.Organizations
             user.Email = request.Email;
             user.Password = request.Password;
             user.RoleId = request.RoleId;
-            user.Status = request.Status;
+            user.Status = "true";
             user.Uid = request.Uid;
             return await _context.SaveChangesAsync();
         }

@@ -26,7 +26,8 @@ namespace Donation.Business.Transaction
                 Amount = request.Amount,
                 Description = request.Description,
                 DonateDate = request.DonateDate,
-                DonatorCardNumber = request.DonatorCardNumber
+                DonatorCardNumber = request.DonatorCardNumber,
+                Status = true
             };
             _context.Transactions.Add(transaction);
             await _context.SaveChangesAsync();
@@ -37,13 +38,14 @@ namespace Donation.Business.Transaction
         {
             var transaction = await _context.Transactions.FindAsync(id);
             if (transaction == null) throw new Exception("not found this transaction");
-            _context.Transactions.Remove(transaction);
+            transaction.Status = false;
             return await _context.SaveChangesAsync();
         }
 
         public async Task<List<TransactionViewModel>> GetAll()
         {
             var query = from c in _context.Transactions
+                        where c.Status == true
                         select new { c };
             return await query.Select(x => new TransactionViewModel()
             {
@@ -60,7 +62,7 @@ namespace Donation.Business.Transaction
         public async Task<TransactionViewModel> GetById(int id)
         {
             var query = from c in _context.Transactions
-                        where c.TransactionId == id
+                        where c.TransactionId == id && c.Status == true
                         select new { c };
             return await query.Select(x => new TransactionViewModel()
             {

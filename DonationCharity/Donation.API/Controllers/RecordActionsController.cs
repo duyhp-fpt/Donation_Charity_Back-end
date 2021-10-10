@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class RecordActionsController : ControllerBase
     {
         private IRecordActionService _recordActionService;
@@ -20,12 +21,14 @@ namespace Donation.API.Controllers
         }
 
         [HttpGet]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetAll()
         {
             var recordAction = await _recordActionService.GetAll();
             return Ok(recordAction);
         }
         [HttpGet("{id}")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> GetById(int id)
         {
             var recordAction = await _recordActionService.GetById(id);
@@ -35,6 +38,7 @@ namespace Donation.API.Controllers
 
         [HttpPost]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Create([FromForm] RecordActionCreateRequest request)
         {
             var recordId = await _recordActionService.Create(request);
@@ -47,6 +51,7 @@ namespace Donation.API.Controllers
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
+        [MapToApiVersion("1.0")]
         public async Task<ActionResult> Update([FromRoute] int id, [FromForm] RecordActionUpdateRequest request)
         {
             if (!ModelState.IsValid)
@@ -60,6 +65,7 @@ namespace Donation.API.Controllers
         }
 
         [HttpDelete("{Id}")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> Delete(int Id)
         {
             var affectedResult = await _recordActionService.Delete(Id);

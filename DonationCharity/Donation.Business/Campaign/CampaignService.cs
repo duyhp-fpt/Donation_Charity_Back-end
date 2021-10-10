@@ -31,7 +31,8 @@ namespace Donation.Business.Campaign
                 Image =request.Image,
                 DonationCaseId = request.DonationCaseId,
                 CardNumber = request.CardNumber,
-                PaymentId = request.PaymentId
+                PaymentId = request.PaymentId,
+                Status = true
             };
             _context.Campaigns.Add(campaign);
             await _context.SaveChangesAsync();
@@ -41,7 +42,8 @@ namespace Donation.Business.Campaign
         public async Task<List<CampaignViewModel>> GetAll()
         {
             var query = from c in _context.Campaigns
-                                    select new { c };
+                        where c.Status == true
+                        select new { c };
 
             return await query.Select(x => new CampaignViewModel()
             {
@@ -62,6 +64,7 @@ namespace Donation.Business.Campaign
         {
             var query = from c in _context.Campaigns
                         join dc in _context.DonationCases on c.DonationCaseId equals dc.DonationCaseId
+                        where c.Status == true
                         select new { c, dc };
             //filter
             if (!string.IsNullOrEmpty(request.keyword))
@@ -104,7 +107,7 @@ namespace Donation.Business.Campaign
         public async Task<CampaignViewModel> GetById(int id)
         {
             var query = from c in _context.Campaigns
-                        where c.CampaignId == id
+                        where c.CampaignId == id && c.Status == true
                         select new { c };
 
             return await query.Select(x => new CampaignViewModel()
