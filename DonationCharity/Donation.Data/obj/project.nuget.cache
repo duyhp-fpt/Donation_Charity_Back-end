@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dVeRM93IorXLNNm3y4KkNvFjdXxaDmpzlUeUtQRFgEJNW0IMUAyG+He2VwYYEpQ0xFBiXxujmcyWXixsuh2i9Q==",
+  "dgSpecHash": "imT5mt9nwkQMxG5q3tLC0smYOnSB/jI9T7EBHLCWtBXxDKjttyiutoN9w+bliYukChf77Ci+WjsVg9fHYByqrw==",
   "success": true,
   "projectFilePath": "D:\\Donation_Charity_Back-end\\DonationCharity\\Donation.Data\\Donation.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tanda\\.nuget\\packages\\corepush\\3.0.10\\corepush.3.0.10.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -35,6 +36,8 @@
     "C:\\Users\\tanda\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\tanda\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\tanda\\.nuget\\packages\\portable.bouncycastle\\1.8.9\\portable.bouncycastle.1.8.9.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\tanda\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

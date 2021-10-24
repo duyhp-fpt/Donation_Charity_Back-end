@@ -175,3 +175,8 @@ D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\obj\Debug\netcoreapp3.1\Donation.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Versioning.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\CorePush.dll
+D:\Donation_Charity_Back-end\DonationCharity\Donation.API\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll

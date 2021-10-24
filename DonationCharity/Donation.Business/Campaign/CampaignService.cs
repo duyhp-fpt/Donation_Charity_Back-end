@@ -8,15 +8,23 @@ using Microsoft.EntityFrameworkCore;
 using Donation.Data.Entities;
 using Donation.Business.Campaign.dto;
 using Donation.Business.Paging;
+using Donation.Business.Image;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
+using System.IO;
 
 namespace Donation.Business.Campaign
 {
     public class CampaignService : ICampaignService
     {
         private readonly DonationContext _context;
-        public CampaignService(DonationContext context)
+        private readonly IStorageService _storageService;
+        private const string USER_CONTENT_FOLDER_NAME = "user-content";
+        public CampaignService(DonationContext context, IStorageService storageService)
         {
             _context = context;
+            _storageService = storageService;
+            
         }
 
         public async Task<int> Create(CampaignCreateRequest request)
@@ -27,13 +35,15 @@ namespace Donation.Business.Campaign
                 OrganizationId =request.OrganizationId,
                 Description =request.Description,
                 Title = request.Title,
-                DateCreate = request.DateCreate,
-                Image =request.Image,
+                DateCreate = DateTime.Now,
                 DonationCaseId = request.DonationCaseId,
                 CardNumber = request.CardNumber,
-                PaymentId = request.PaymentId,
                 Status = true
             };
+            if(request.ThumbnailImage != null)
+            {
+                campaign.Image = await this.SaveFile(request.ThumbnailImage);
+            }
             _context.Campaigns.Add(campaign);
             await _context.SaveChangesAsync();
             return campaign.CampaignId;
@@ -55,7 +65,6 @@ namespace Donation.Business.Campaign
                 DonationCaseId = (int)x.c.DonationCaseId,
                 Image = x.c.Image,
                 OrganizationId = (int)x.c.OrganizationId,
-                PaymentId = (int)x.c.PaymentId,
                 Title = x.c.Title
             }).ToListAsync();
         }
@@ -89,7 +98,6 @@ namespace Donation.Business.Campaign
                     DonationCaseId = (int)x.c.DonationCaseId,
                     Image = x.c.Image,
                     OrganizationId = (int)x.c.OrganizationId,
-                    PaymentId = (int)x.c.PaymentId,
                     Title = x.c.Title
                 }).ToListAsync();
 
@@ -120,7 +128,6 @@ namespace Donation.Business.Campaign
                 DonationCaseId = (int)x.c.DonationCaseId,
                 Image = x.c.Image,
                 OrganizationId = (int)x.c.OrganizationId,
-                PaymentId = (int)x.c.PaymentId,
                 Title = x.c.Title
             }).FirstOrDefaultAsync();
         }
@@ -137,6 +144,14 @@ namespace Donation.Business.Campaign
             campaign.DonationCaseId = request.DonationCaseId;
             campaign.CardNumber = request.CardNumber;
             return await _context.SaveChangesAsync();
+        }
+
+        public async Task<string> SaveFile(IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            return fileName;
         }
     }
 }

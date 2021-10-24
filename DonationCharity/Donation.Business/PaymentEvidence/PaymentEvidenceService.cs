@@ -6,27 +6,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Donation.Business.Image;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
+using System.IO;
 
 namespace Donation.Business.PaymentEvidence
 {
     public class PaymentEvidenceService : IPaymentEvidenceService
     {
         private readonly DonationContext _context;
-        public PaymentEvidenceService( DonationContext context)
+        private readonly IStorageService _storageService;
+        public PaymentEvidenceService( DonationContext context, IStorageService storageService)
         {
             _context = context;
+            _storageService = storageService;
         }
 
         public async Task<int> Create(PaymentEvidenceCreateRequest request)
         {
             var paymentEvidence = new Donation.Data.Entities.PaymentEvidence()
             {
-                PaymentEvidenceImage = request.PaymentEvidenceImage,
-                PaymentEvidenceDate = request.PaymentEvidenceDate,
+                PaymentEvidenceDate = DateTime.Now,
                 ProductId = request.ProductId,
                 Status = true
 
             };
+            if (request.PaymentEvidenceImage != null)
+            {
+                paymentEvidence.PaymentEvidenceImage = await this.SaveFile(request.PaymentEvidenceImage);
+            }
             _context.PaymentEvidences.Add(paymentEvidence);
             await _context.SaveChangesAsync();
             return paymentEvidence.PaymentEvidenceId;
@@ -75,9 +84,17 @@ namespace Donation.Business.PaymentEvidence
             if (paymentEvidence == null) throw new Exception("not found");
 
             paymentEvidence.PaymentEvidenceImage = request.PaymentEvidenceImage;
-            paymentEvidence.PaymentEvidenceDate = request.PaymentEvidenceDate;
+            paymentEvidence.PaymentEvidenceDate = DateTime.Now;
             paymentEvidence.ProductId = request.ProductId;
             return await _context.SaveChangesAsync();
+        }
+
+        public async Task<string> SaveFile(IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            return fileName;
         }
     }
 }

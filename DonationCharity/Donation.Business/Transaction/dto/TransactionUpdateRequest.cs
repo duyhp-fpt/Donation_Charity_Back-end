@@ -11,7 +11,6 @@ namespace Donation.Business.Transaction.dto
         public int CampaignId { get; set; }
         public double Amount { get; set; }
         public string Description { get; set; }
-        public DateTime DonateDate { get; set; }
         public string DonatorCardNumber { get; set; }
     }
 }

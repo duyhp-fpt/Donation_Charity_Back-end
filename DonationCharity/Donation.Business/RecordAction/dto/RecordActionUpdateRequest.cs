@@ -8,7 +8,6 @@ namespace Donation.Business.RecordAction.dto
     {
         public int RecordId { get; set; }
         public string Action { get; set; }
-        public DateTime? Time { get; set; }
         public int? UserId { get; set; }
     }
 }

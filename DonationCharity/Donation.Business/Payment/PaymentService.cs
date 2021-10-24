@@ -22,9 +22,10 @@ namespace Donation.Business.Payment
         {
             var payment = new Donation.Data.Entities.Payment()
             {
-                PaymentDate = request.PaymentDate,
+                PaymentDate = DateTime.Now,
                 TotalPrice = request.TotalPrice,
-                Status = true
+                Status = true,
+                CampaignId = request.CampaignId
             };
             _context.Payments.Add(payment);
             await _context.SaveChangesAsync();
@@ -48,7 +49,8 @@ namespace Donation.Business.Payment
             {
                 PaymentId = x.c.PaymentId,
                 PaymentDate = (DateTime)x.c.PaymentDate,
-                TotalPrice = (double)x.c.TotalPrice
+                TotalPrice = (double)x.c.TotalPrice,
+                CampaignId = x.c.CampaignId
             }).ToListAsync();
         }
 
@@ -61,7 +63,8 @@ namespace Donation.Business.Payment
             {
                 PaymentId = x.c.PaymentId,
                 PaymentDate = (DateTime)x.c.PaymentDate,
-                TotalPrice = (double)x.c.TotalPrice
+                TotalPrice = (double)x.c.TotalPrice,
+                CampaignId = x.c.CampaignId
             }).FirstOrDefaultAsync();
         }
 
@@ -70,7 +73,6 @@ namespace Donation.Business.Payment
             var payment = await _context.Payments.FindAsync(request.PaymentId);
             if (payment == null) throw new Exception("not found");
 
-            payment.PaymentDate = request.PaymentDate;
             payment.TotalPrice = request.TotalPrice;
             return await _context.SaveChangesAsync();
         }

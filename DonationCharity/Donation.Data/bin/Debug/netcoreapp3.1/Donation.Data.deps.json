@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Donation.Data/1.0.0": {
         "dependencies": {
+          "CorePush": "3.0.10",
           "Microsoft.EntityFrameworkCore.Design": "3.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.1",
@@ -16,6 +17,18 @@
         },
         "runtime": {
           "Donation.Data.dll": {}
+        }
+      },
+      "CorePush/3.0.10": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "Portable.BouncyCastle": "1.8.9"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CorePush.dll": {
+            "assemblyVersion": "3.0.10.0",
+            "fileVersion": "3.0.10.0"
+          }
         }
       },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -333,6 +346,22 @@
         "dependencies": {
           "System.Security.AccessControl": "4.5.0",
           "System.Security.Principal.Windows": "4.5.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "Portable.BouncyCastle/1.8.9": {
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "assemblyVersion": "1.8.9.0",
+            "fileVersion": "1.8.9.1"
+          }
         }
       },
       "runtime.native.System/4.3.0": {
@@ -918,6 +947,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "CorePush/3.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oDTJY4TA2aJd6UqsiN250yVAMjAuoIpB8skak/43w+ea9WBED6v0yosJr9v4nak8WG8umonbxIiiPiqkM5GxjA==",
+      "path": "corepush/3.0.10",
+      "hashPath": "corepush.3.0.10.nupkg.sha512"
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1134,6 +1170,20 @@
       "sha512": "sha512-+FWlwd//+Tt56316p00hVePBCouXyEzT86Jb3+AuRotTND0IYn0OO3obs1gnQEs/txEnt+rF2JBGLItTG+Be6A==",
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "Portable.BouncyCastle/1.8.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wlJo8aFoeyl+W93iFXTK5ShzDYk5WBqoUPjTNEM0Xv9kn1H+4hmuCjF0/n8HLm9Nnp1aY6KNndWqQTNk+NGgRQ==",
+      "path": "portable.bouncycastle/1.8.9",
+      "hashPath": "portable.bouncycastle.1.8.9.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",

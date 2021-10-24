@@ -1,7 +1,11 @@
+using CorePush.Apple;
+using CorePush.Google;
+using Donation.API.Models;
 using Donation.Business.Authentication;
 using Donation.Business.Campaign;
 using Donation.Business.DonationCase;
 using Donation.Business.Fanpage;
+using Donation.Business.Image;
 using Donation.Business.Organizations;
 using Donation.Business.Payment;
 using Donation.Business.PaymentEvidence;
@@ -58,10 +62,18 @@ namespace Donation.API
             services.AddTransient<IPaymentService, PaymentService>();
             services.AddTransient<IPaymentEvidenceService, PaymentEvidenceService>();
             services.AddTransient<IRecordActionService, RecordActionService>();
-            services.AddTransient<ITransactionService, TransactionService>();
+            services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<ITransactionService, TransactionService>();
 
             services.AddControllers();
+            services.AddTransient<INotificationService, NotificationService>();
+            services.AddHttpClient<FcmSender>();
+            services.AddHttpClient<ApnSender>();
+
+            // Configure strongly typed settings objects
+            var appSettingsSection = Configuration.GetSection("FcmNotification");
+            services.Configure<FcmNotificationSetting>(appSettingsSection);
 
             //api version
             services.AddApiVersioning(x =>

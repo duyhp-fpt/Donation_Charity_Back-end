@@ -1,4 +1,5 @@
 ﻿using Donation.Business.Product.dto;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,6 @@ namespace Donation.Business.Product
         Task<int> Create(ProductCreateRequest request);
         Task<int> Update(ProductUpdateRequest request);
         Task<int> Delete(int id);
+        Task<string> SaveFile(IFormFile file);
     }
 }

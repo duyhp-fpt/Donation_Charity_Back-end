@@ -6,15 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
+using System.IO;
+using Donation.Business.Image;
 
 namespace Donation.Business.Product
 {
     public class ProductService : IProductService
     {
         private readonly DonationContext _context;
-        public ProductService(DonationContext context)
+        private readonly IStorageService _storageService;
+        private const string USER_CONTENT_FOLDER_NAME = "user-content";
+        public ProductService(DonationContext context, IStorageService storageService)
         {
             _context = context;
+            _storageService = storageService;
         }
 
         public async Task<int> Create(ProductCreateRequest request)
@@ -80,6 +87,14 @@ namespace Donation.Business.Product
             product.Price = request.Price;
             product.PaymentId = request.PaymentId;
             return await _context.SaveChangesAsync();
+        }
+
+        public async Task<string> SaveFile(IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
         }
     }
 }

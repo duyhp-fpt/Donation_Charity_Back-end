@@ -23,7 +23,7 @@ namespace Donation.Business.RecordAction
             {
                 UserId = request.UserId,
                 Action = request.Action,
-                Time = request.Time,
+                Time = DateTime.Now,
                 Status = true
             };
             _context.RecordActions.Add(recordAction);
@@ -74,7 +74,7 @@ namespace Donation.Business.RecordAction
 
             recordAction.UserId = request.UserId;
             recordAction.Action = request.Action;
-            recordAction.Time = request.Time;
+            recordAction.Time = DateTime.Now;
             return await _context.SaveChangesAsync();
         }
     }

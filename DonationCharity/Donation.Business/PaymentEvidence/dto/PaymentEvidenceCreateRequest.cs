@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,7 @@ namespace Donation.Business.PaymentEvidence.dto
 {
     public class PaymentEvidenceCreateRequest
     {
-        public string PaymentEvidenceImage { get; set; }
-        public DateTime PaymentEvidenceDate { get; set; }
+        public IFormFile PaymentEvidenceImage { get; set; }
         public int? ProductId { get; set; }
     }
 }

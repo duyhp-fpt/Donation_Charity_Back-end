@@ -25,7 +25,7 @@ namespace Donation.Business.Transaction
                 CampaignId = request.CampaignId,
                 Amount = request.Amount,
                 Description = request.Description,
-                DonateDate = request.DonateDate,
+                DonateDate = DateTime.Now,
                 DonatorCardNumber = request.DonatorCardNumber,
                 Status = true
             };
@@ -86,7 +86,7 @@ namespace Donation.Business.Transaction
             transaction.CampaignId = (request.CampaignId);
             transaction.Amount = request.Amount;
             transaction.Description = request.Description;
-            transaction.DonateDate = request.DonateDate;
+            transaction.DonateDate = DateTime.Now;
             transaction.DonatorCardNumber = request.DonatorCardNumber;
             return await _context.SaveChangesAsync();
         }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
-// If you have enabled NRTs for your project, then un-comment the following line:
-// #nullable disable
+#nullable disable
 
 namespace Donation.Data.Entities
 {
@@ -11,7 +9,6 @@ namespace Donation.Data.Entities
     {
         public Payment()
         {
-            Campaigns = new HashSet<Campaign>();
             Products = new HashSet<Product>();
         }
 
@@ -19,8 +16,9 @@ namespace Donation.Data.Entities
         public DateTime? PaymentDate { get; set; }
         public double? TotalPrice { get; set; }
         public bool? Status { get; set; }
+        public int? CampaignId { get; set; }
 
-        public virtual ICollection<Campaign> Campaigns { get; set; }
+        public virtual Campaign Campaign { get; set; }
         public virtual ICollection<Product> Products { get; set; }
     }
 }

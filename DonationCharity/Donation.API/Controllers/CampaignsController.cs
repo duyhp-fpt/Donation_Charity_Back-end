@@ -36,7 +36,7 @@ namespace Donation.API.Controllers
         public async Task<ActionResult> GetById(int id)
         {
             var campaign = await _campaignService.GetById(id);
-            if (campaign == null) return BadRequest("Not found organization");
+            if (campaign == null) return BadRequest("Not found campign");
             return Ok(campaign);
         }
 

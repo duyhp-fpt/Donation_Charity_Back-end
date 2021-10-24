@@ -13,5 +13,9 @@
     "Secret": "das789dc677k70ovhh3eikkcbmz7wjvcbsufjj98",
     "AdminUID": "aS9Phaqh1Egxx9SXAB7FsNW5dH92"
   },
+  "FcmNotification": {
+    "SenderId": "349673548057",
+    "ServerKey": "AAAAUWoq6Rk:APA91bEdfChTwWCs2FPxa0imp910wfKYQMggn9IalSnrX9o5vTPSLhs2Y3GsKzeDJmoOag5VdVoaZLozMKO2RrQ5uoPvrgkJ97ZaX_LZ9b94_OTqQIEHEHZAJivNWAyu6yw9izRgwuB1"
+  },
   "AllowedHosts": "*"
 }

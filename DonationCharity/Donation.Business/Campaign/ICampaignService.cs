@@ -1,5 +1,6 @@
 ﻿using Donation.Business.Campaign.dto;
 using Donation.Business.Paging;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,7 @@ namespace Donation.Business.Campaign
         public Task<int> Create(CampaignCreateRequest request);
         public Task<int> Update(CampaignUpdateRequest request);
         Task<PageResult<CampaignViewModel>> GetAllPaging(GetCampaignPagingRequest request);
+        Task<string> SaveFile(IFormFile file);
+
     }
 }
