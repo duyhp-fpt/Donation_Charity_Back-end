@@ -52,7 +52,7 @@ namespace Donation.API
             services.AddCors();
 
             services.AddDbContext<DonationContext>(options =>
-        options.UseSqlServer("Data Source=40.121.243.60;Initial Catalog=Donation;User ID=sa;Password=123456"));
+        options.UseSqlServer("Data Source=TANDAT\\SQLEXPRESS;Initial Catalog=Donation;User ID=sa;Password=dat123"));
 
             services.AddTransient<IUserService, Business.Organizations.UserService>();
             services.AddTransient<ICampaignService, CampaignService>();
