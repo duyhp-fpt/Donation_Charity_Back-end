@@ -15,5 +15,6 @@ namespace Donation.Business.Campaign.dto
         public string Image { get; set; }
         public int DonationCaseId { get; set; }
         public string CardNumber { get; set; }
+        public double Goal { get;set;}
     }
 }

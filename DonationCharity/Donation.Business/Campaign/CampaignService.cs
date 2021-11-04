@@ -38,7 +38,8 @@ namespace Donation.Business.Campaign
                 DateCreate = DateTime.Now,
                 DonationCaseId = request.DonationCaseId,
                 CardNumber = request.CardNumber,
-                Status = true
+                Status = true,
+                Goal = request.Goal
             };
             if(request.ThumbnailImage != null)
             {
@@ -65,7 +66,8 @@ namespace Donation.Business.Campaign
                 DonationCaseId = (int)x.c.DonationCaseId,
                 Image = x.c.Image,
                 OrganizationId = (int)x.c.OrganizationId,
-                Title = x.c.Title
+                Title = x.c.Title,
+                Goal = (double)x.c.Goal
             }).ToListAsync();
         }
 
@@ -98,7 +100,8 @@ namespace Donation.Business.Campaign
                     DonationCaseId = (int)x.c.DonationCaseId,
                     Image = x.c.Image,
                     OrganizationId = (int)x.c.OrganizationId,
-                    Title = x.c.Title
+                    Title = x.c.Title,
+                    Goal = (double)x.c.Goal
                 }).ToListAsync();
 
             // select and projection
@@ -128,7 +131,8 @@ namespace Donation.Business.Campaign
                 DonationCaseId = (int)x.c.DonationCaseId,
                 Image = x.c.Image,
                 OrganizationId = (int)x.c.OrganizationId,
-                Title = x.c.Title
+                Title = x.c.Title,
+                Goal = (double)x.c.Goal
             }).FirstOrDefaultAsync();
         }
 
@@ -143,6 +147,7 @@ namespace Donation.Business.Campaign
             campaign.Image = request.Image;
             campaign.DonationCaseId = request.DonationCaseId;
             campaign.CardNumber = request.CardNumber;
+            campaign.Goal = request.Goal;
             return await _context.SaveChangesAsync();
         }
 
