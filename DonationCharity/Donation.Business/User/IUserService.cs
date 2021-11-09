@@ -1,4 +1,5 @@
 ﻿using Donation.Business.Organizations.dto;
+using Donation.Business.User.dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,8 @@ namespace Donation.Business.Organizations
         Task<UserViewModel> GetById(int id);
         Task<int> Create(UserCreateRequest request);
         Task<int> Update(UserUpdateRequest request);
+        Task<Donation.Data.Entities.User> GetUser(String email, String password);
+        Task<string> Login(LoginRequest request);
+        Task<int> Delete(int id);
     }
 }

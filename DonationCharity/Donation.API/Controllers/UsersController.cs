@@ -1,11 +1,9 @@
 ﻿using Donation.Business.Organizations;
 using Donation.Business.Organizations.dto;
-using Donation.Data.Entities;
-using Microsoft.AspNetCore.Http;
+using Donation.Business.User.dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Donation.API.Controllers
@@ -64,5 +62,34 @@ namespace Donation.API.Controllers
             if (affectedResult == 0) return BadRequest();
             return Ok("update success");
         }
+
+        [AllowAnonymous]
+        [MapToApiVersion("1.0")]
+        [HttpPost("authenticate")]
+        public async Task<ActionResult> Authenticate([FromForm] LoginRequest request)
+        {
+            var token = _userService.Login(request);
+            if (token == null) return BadRequest(" Wrong username or password");
+            try
+            { 
+                return Ok( await token);
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+
+        }
+
+        [HttpDelete("{Id}")]
+        [MapToApiVersion("1.0")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var affectedResult = await _userService.Delete(Id);
+            if (affectedResult == 0)
+                return BadRequest();
+            return Ok("Delete Success");
+        }
+
     }
 }

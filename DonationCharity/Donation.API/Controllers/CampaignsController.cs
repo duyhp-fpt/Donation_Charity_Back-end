@@ -75,5 +75,15 @@ namespace Donation.API.Controllers
             var campaign = await _campaignService.GetAllPaging(request);
             return Ok(campaign);
         }
+
+        [HttpDelete("{Id}")]
+        [MapToApiVersion("1.0")]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var affectedResult = await _campaignService.Delete(Id);
+            if (affectedResult == 0)
+                return BadRequest();
+            return Ok("Delete Success");
+        }
     }
 }

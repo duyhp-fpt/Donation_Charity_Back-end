@@ -65,8 +65,9 @@ namespace Donation.API
             services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IAuthenticationService, AuthenticationService>();
             services.AddTransient<ITransactionService, TransactionService>();
-
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
             services.AddTransient<INotificationService, NotificationService>();
             services.AddHttpClient<FcmSender>();
             services.AddHttpClient<ApnSender>();

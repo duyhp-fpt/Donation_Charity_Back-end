@@ -35,7 +35,7 @@ namespace Donation.Business.Authentication
             return "";
         }
 
-        private async Task<User> LoadUserByUid(string uid)
+        private async Task<Donation.Data.Entities.User> LoadUserByUid(string uid)
         {
             return await _context.Users.FirstOrDefaultAsync(user => user.Uid.Equals(uid));
         }

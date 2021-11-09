@@ -55,6 +55,7 @@ namespace Donation.Business.Campaign
             var query = from c in _context.Campaigns
                         where c.Status == true
                         select new { c };
+            
 
             return await query.Select(x => new CampaignViewModel()
             {
@@ -64,7 +65,7 @@ namespace Donation.Business.Campaign
                 DateCreate = (DateTime)x.c.DateCreate,
                 Description = x.c.Description,
                 DonationCaseId = (int)x.c.DonationCaseId,
-                Image = x.c.Image,
+                Image =  _storageService.GetFileUrl(x.c.Image),
                 OrganizationId = (int)x.c.OrganizationId,
                 Title = x.c.Title,
                 Goal = (double)x.c.Goal
@@ -98,7 +99,7 @@ namespace Donation.Business.Campaign
                     DateCreate = (DateTime)x.c.DateCreate,
                     Description = x.c.Description,
                     DonationCaseId = (int)x.c.DonationCaseId,
-                    Image = x.c.Image,
+                    Image = _storageService.GetFileUrl(x.c.Image),
                     OrganizationId = (int)x.c.OrganizationId,
                     Title = x.c.Title,
                     Goal = (double)x.c.Goal
@@ -129,7 +130,7 @@ namespace Donation.Business.Campaign
                 DateCreate = (DateTime)x.c.DateCreate,
                 Description = x.c.Description,
                 DonationCaseId = (int)x.c.DonationCaseId,
-                Image = x.c.Image,
+                Image = _storageService.GetFileUrl(x.c.Image) ,
                 OrganizationId = (int)x.c.OrganizationId,
                 Title = x.c.Title,
                 Goal = (double)x.c.Goal
@@ -140,11 +141,14 @@ namespace Donation.Business.Campaign
         {
             var campaign = await _context.Campaigns.FindAsync(request.CampaignId);
             if (campaign == null) throw new Exception("not found");
+            if (request.ThumbnailImage != null)
+            {
+                campaign.Image = await this.SaveFile(request.ThumbnailImage);
+            }
 
             campaign.CampaignName = request.CampaignName;
             campaign.Description = request.Description;
             campaign.Title = request.Title;
-            campaign.Image = request.Image;
             campaign.DonationCaseId = request.DonationCaseId;
             campaign.CardNumber = request.CardNumber;
             campaign.Goal = request.Goal;
@@ -157,6 +161,14 @@ namespace Donation.Business.Campaign
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
             await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
             return fileName;
+        }
+
+        public async Task<int> Delete(int id)
+        {
+            var campaign = await _context.Campaigns.FindAsync(id);
+            if (campaign == null) throw new Exception("not found campaign");
+            campaign.Status = false;
+            return await _context.SaveChangesAsync();
         }
     }
 }

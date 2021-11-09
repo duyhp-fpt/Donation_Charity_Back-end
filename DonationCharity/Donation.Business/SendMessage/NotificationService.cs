@@ -44,6 +44,7 @@ namespace Donation.Data.Entities
                             .Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     DataPayload dataPayload = new DataPayload();
+
                     dataPayload.Title = notificationModel.Title;
                     dataPayload.Body = notificationModel.Body;
 

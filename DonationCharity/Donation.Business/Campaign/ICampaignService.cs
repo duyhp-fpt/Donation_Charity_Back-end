@@ -16,6 +16,7 @@ namespace Donation.Business.Campaign
         public Task<int> Update(CampaignUpdateRequest request);
         Task<PageResult<CampaignViewModel>> GetAllPaging(GetCampaignPagingRequest request);
         Task<string> SaveFile(IFormFile file);
+        Task<int> Delete(int id);
 
     }
 }
